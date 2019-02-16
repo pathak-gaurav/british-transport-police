@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>BTP - Profile</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">British Transport Police</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Career <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Volunteer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Case Study</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">More</a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#"
+                       th:href="@{/profile?username=__${#authentication.name}__}">Profile</a>
+                    <a class="dropdown-item" href="#">Change Password</a>
+                    <a class="dropdown-item" href="#">About Us</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="#" th:action="@{/logout}" method="post">
+            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" th:value="'logout'"/>
+        </form>
+    </div>
+</nav>
+
+<div class="jumbotron page table-wrapper-scroll-y">
+    <table class="table table-bordered table-dark" cellspacing="0"
+           width="100%">
+        <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Locked</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Email Id</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Address</th>
+            <th scope="col">County</th>
+            <th scope="col">City</th>
+            <th scope="col">Phone Number</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user:${users}">
+            <td th:text="${user.username}">mark</td>
+            <td th:text="${user.enabled}">false</td>
+            <td th:text="${user.officerDetails.firstName}">Zoe</td>
+            <td th:text="${user.officerDetails.lastName}">Anderson</td>
+            <td th:text="${user.officerDetails.age}">22</td>
+            <td th:text="${user.officerDetails.emailId}">abc@gmail.com</td>
+            <td th:text="${user.officerDetails.designation}">Officer</td>
+            <td th:text="${user.officerDetails.gender}">Female</td>
+            <td th:text="${user.officerDetails.address}">High Street</td>
+            <td th:text="${user.officerDetails.county}">Sussex</td>
+            <td th:text="${user.officerDetails.city}">London</td>
+            <td th:text="${user.officerDetails.phoneNumber}">65765675</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+
+<footer class="container">
+    <p>&copy; British Transport Police 2017-2018</p>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

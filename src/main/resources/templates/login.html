@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>BTP - Login</title>
+</head>
+<style>
+    .errorColour{color: red}
+</style>
+<body>
+<div class="container">
+    <br>
+    <h1 class="h3 mb-4 col-4 font-weight-normal display-4">Please sign in</h1>
+    <img src="https://www.samaritans.org/sites/default/files/styles/page_overview/public/page/british_transport_police_logo_0.png?itok=ukvfctde"
+         alt="..."
+         class="float-right" width="500px">
+
+    <div th:if="${param.error} and ${session}" th:with="errorMsg=${session['SPRING_SECURITY_LAST_EXCEPTION']?.message}">
+        <div class="alert alert-dismissible alert-danger error mb-4 col-4">
+            <b><i><span th:text="${errorMsg}" class="errorColour">Demo Invalid input</span></i></b>
+        </div>
+    </div>
+
+    <form action="#" th:action="@{/login}" method="post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control mb-4 col-4" id="username" placeholder="Enter username"
+                   name="username" autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control mb-4 col-4" id="password" placeholder="Enter password"
+                   name="password" required>
+        </div>
+        <input type="submit" class="btn btn-primary mb-4 col-4" th:value="'Log in'"/>
+    </form>
+    <br>
+    <input type="button" onclick="window.location.href='/forgotPasswordPage'" class="btn btn-warning mb-1 col-2"
+           th:value="'Forgot Password'"/>
+    <input type="button" onclick="window.location.href='/signUpPage'" class="btn btn-warning mb-1 col-2"
+           th:value="'Sign Up'"/>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>BTP - Career</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">British Transport Police</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/careers}">Career <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Volunteer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Case Study</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">More</a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item"
+                       th:href="@{/profile(username=${#authentication.name})}">Profile</a>
+                    <a class="dropdown-item" href="#">Change Password</a>
+                    <a class="dropdown-item" href="#">About Us</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="#" th:action="@{/logout}" method="post">
+            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" th:value="'logout'"/>
+        </form>
+    </div>
+</nav>
+
+<br>
+<div class="jumbotron page">
+    <div class="card">
+        <div class="card-body">
+            <div id='main-content' tabindex="-1" class="right-column col-md-12">
+                <div class='welcome-message'>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/British_Transport_Police_Logo.svg/1200px-British_Transport_Police_Logo.svg.png"
+                         alt="Logo" class="float-right" width="300px">
+                    <h1>Welcome to the British Transport Police careers site.</h1>
+                    <p>On this site you can see and apply to our current vacancies (click on &#39;Search Vacancies&#39;
+                        in the
+                        navigation bar). You can also request help in the Help Centre or ask for a Password Reminder.
+                        Once you have
+                        applied you&#39;ll also be able to log-in and check your status and review any communication
+                        that has been
+                        sent to you. We look forward to receiving your application.</p>
+                    <p>
+                    <p>We wish you every success with your application.<br/><br/>British Transport Police</p>
+                    <p>Please note - We only accept one application per vacancy.</p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <input type="image" src="https://www.btp.police.uk/images/join-us.gif"
+                   width="350px" onclick="window.location.href='/careers'">
+        </div>
+        <div class="col-md-4">
+            <input type="image" src="https://www.btp.police.uk/images/web%20volunteers-465x200_v_Variation_1.jpg"
+                   width="350px" onclick="window.location.href='/volunteers'">
+        </div>
+        <div class="col-md-4">
+            <input type="image" onclick="window.location.href='/policeOfficerCaseStudy'"
+                   src="https://www.btp.police.uk/images/614%20-%20website%20homepage%20header%20birm3%20%284%29.jpg"
+                   width="350px">
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
