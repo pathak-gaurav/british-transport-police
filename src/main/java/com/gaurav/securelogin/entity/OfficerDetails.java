@@ -50,4 +50,9 @@ public class OfficerDetails {
         this.city = city;
         this.phoneNumber = phoneNumber;
     }
+
+    public OfficerDetails(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

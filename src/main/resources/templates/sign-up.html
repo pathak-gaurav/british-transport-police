@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>BTP - Login</title>
+    <title>BTP - SignUp</title>
 </head>
 <style>
     .errorColour{color: red}
@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <br>
-    <h1 class="h3 mb-4 col-4 font-weight-normal display-4">Please sign in</h1>
+    <h1 class="h3 mb-4 col-4 font-weight-normal display-4">Sign Up</h1>
     <img src="https://www.samaritans.org/sites/default/files/styles/page_overview/public/page/british_transport_police_logo_0.png?itok=ukvfctde"
          alt="..."
          class="float-right" width="500px">
@@ -22,30 +22,22 @@
             <b><i><span th:text="${errorMsg}" class="errorColour">Demo Invalid input</span></i></b>
         </div>
     </div>
-    <div th:if="${param.signup}">
-        <div class="alert alert-dismissible alert-danger error mb-4 col-4">
-            <b><i><span th:text="'User Added, Kindly Login'" class="errorColour">Demo Invalid input</span></i></b>
-        </div>
-    </div>
 
-    <form action="#" th:action="@{/login}" method="post">
+    <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control mb-4 col-4" id="username" placeholder="Enter username"
-                   name="username" autofocus required>
+            <input type="text" class="form-control mb-4 col-4" id="username" placeholder="Enter desired username"
+                  th:field="*{username}" autofocus required>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control mb-4 col-4" id="password" placeholder="Enter password"
-                   name="password" required>
+            <input type="password" class="form-control mb-4 col-4" id="password" placeholder="Enter desired password"
+                   th:field="*{password}" required>
         </div>
-        <input type="submit" class="btn btn-primary mb-4 col-4" th:value="'Log in'"/>
+        <input type="submit" class="btn btn-primary mb-4 col-4" th:value="'Sign Up'"/>
     </form>
     <br>
-    <input type="button" onclick="window.location.href='/forgotPasswordPage'" class="btn btn-warning mb-1 col-2"
-           th:value="'Forgot Password'"/>
-    <input type="button" onclick="window.location.href='/signupForm'" class="btn btn-warning mb-1 col-2"
-           th:value="'Sign Up'"/>
+    <a th:href="@{/login}">Login</a>
 </div>
 
 </body>

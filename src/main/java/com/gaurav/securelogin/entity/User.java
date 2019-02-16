@@ -18,7 +18,7 @@ public class User {
     @Id
     private String username;
     private String password;
-    private String enabled;
+    private String disabled;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "USERS_ROLES", joinColumns = @JoinColumn(name = "USERNAME"),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
@@ -28,10 +28,10 @@ public class User {
     @JoinColumn(name = "OFFICER_ID")
     private OfficerDetails officerDetails;
 
-    public User(String username, String password, String enabled) {
+    public User(String username, String password, String disabled) {
         this.username = username;
         this.password = password;
-        this.enabled = enabled;
+        this.disabled = disabled;
     }
 
     public void addAuthority(Authority tempAuthority) {

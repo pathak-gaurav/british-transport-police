@@ -29,7 +29,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
             userBuilder.password(user.getPassword());
             String[] stringsOfRoles = user.getAuthorities().stream().map(x -> x.getRoleName()).toArray(String[]::new);
             userBuilder.authorities(stringsOfRoles);
-            userBuilder.accountLocked(Boolean.valueOf(user.getEnabled()));
+            userBuilder.accountLocked(Boolean.valueOf(user.getDisabled()));
         } else {
             throw new UsernameNotFoundException("Username Not Found:" + username);
         }
