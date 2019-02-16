@@ -12,4 +12,9 @@ public class HomeController {
     public String showHome(Model model){
         return "home";
     }
+
+    @RequestMapping("/about")
+    public String about(){
+        return "about-us";
+    }
 }
