@@ -67,7 +67,7 @@
         <tbody>
         <tr th:each="user:${users}">
             <td th:text="${user.username}">mark</td>
-            <td th:text="${user.enabled}">false</td>
+            <td th:text="${user.disabled}">false</td>
             <td th:text="${user.officerDetails.firstName}">Zoe</td>
             <td th:text="${user.officerDetails.lastName}">Anderson</td>
             <td th:text="${user.officerDetails.age}">22</td>

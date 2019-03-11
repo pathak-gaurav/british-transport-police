@@ -22,11 +22,26 @@
             <b><i><span th:text="${errorMsg}" class="errorColour">Demo Invalid input</span></i></b>
         </div>
     </div>
-    <div th:if="${param.signup}">
+    <div th:if="${param.xksitup!=null}">
         <div class="alert alert-dismissible alert-danger error mb-4 col-4">
-            <b><i><span th:text="'User Added, Kindly Login'" class="errorColour">Demo Invalid input</span></i></b>
+            <b><i><span th:text="'User Created, Kindly contact admin to unlock account'" class="errorColour">Demo Invalid input</span></i></b>
         </div>
     </div>
+
+    <div th:if="${param.logout}">
+        <div class="alert alert-dismissible alert-danger error mb-4 col-4">
+            <b><i><span th:text="'You have been logged out.'" class="errorColour">Demo Invalid input</span></i></b>
+        </div>
+    </div>
+
+
+
+    <div th:if="${param.passwordChanged!=null}">
+        <div class="alert alert-dismissible alert-danger error mb-4 col-4">
+            <b><i><span th:text="'Password: '+${param.passwordChanged}" class="errorColour">Demo Invalid input</span></i></b>
+        </div>
+    </div>
+
 
     <form action="#" th:action="@{/login}" method="post">
         <div class="form-group">
