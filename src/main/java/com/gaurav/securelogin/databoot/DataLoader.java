@@ -34,7 +34,7 @@ public class DataLoader implements CommandLineRunner {
 
 
 
-        User heneryUser = new User("henery", ("{noop}henery"), "true");
+        User heneryUser = new User("henery", ("{noop}henery"), "false");
         Authority heneryAuthority = new Authority("ROLE_CHIEF");
         OfficerDetails heneryOfficerDetails = new OfficerDetails("Henery", "Smith", 55L, "henery.smith@btp.co.uk",
                 "Chief Officer", "Male", "Westminister Circle", "London",
